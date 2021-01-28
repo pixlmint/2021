@@ -1,0 +1,1 @@
+fetch("/dist/homepage.json").then((n=>n.json())).then((function(n){n.forEach((function(n){console.log(n),document.getElementById("months-list").innerHTML+="<div onclick=\"location.href='/"+n.name+"'\" style=\"background-image:url('"+n.image+'\')" class="month"><p>'+n.name+"</p></div>"}))}));

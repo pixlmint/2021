@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/assets/css/month.css">
+{% endblock %}
+
+{% block header %}
+	<h1>2021</h1>
+{% endblock %}
+
+{% block article %}
+    <div id="months-list">
+    
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block js %}
+	{{ parent() }}
+	<script src="/assets/js/home.js"></script>
+{% endblock %}

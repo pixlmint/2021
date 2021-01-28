@@ -1,0 +1,52 @@
+[
+    {
+        "route": "/",
+        "controller": "Nacho\\Controllers\\HomeController",
+        "function": "index"
+    },
+    {
+        "route": "/nacho",
+        "controller": "Nacho\\Controllers\\PageController",
+        "function": "loadEntry"
+    },
+   {
+        "route": "/admin",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "index"
+    },
+    {
+        "route": "/admin/add",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "add"
+    },
+    {
+        "route": "/admin/edit",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "edit"
+    },
+    {
+        "route": "/admin/delete",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "delete"
+    },
+    {
+        "route": "/login",
+        "controller": "Nacho\\Controllers\\AuthenticationController",
+        "function": "login"
+    },
+    {
+        "route": "/logout",
+        "controller": "Nacho\\Controllers\\AuthenticationController",
+        "function": "logout"
+    },
+    {
+        "route": "/search",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "search"
+    }
+]

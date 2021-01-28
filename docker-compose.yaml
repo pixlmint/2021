@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+    '2021':
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: '2021'
+        image: nacho/2021
+        ports:
+            - '92:80'
+        volumes: 
+            - ./:/var/www/html

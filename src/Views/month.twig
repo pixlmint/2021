@@ -1,0 +1,20 @@
+{% extends 'base.twig' %}
+
+{% block header %}
+	<h1 style="text-align: left">{{ month }}</h1>
+{% endblock %}
+
+{% block article %}{% endblock %}
+
+{% block aside %}
+	<aside>
+		<ul>
+			<li><a href="/">2021</a></li>
+		</ul>
+	</aside>
+{% endblock %}
+
+{% block js %}
+	{{ parent() }}
+	<script src="/dist/frontend.bundle.js"></script>
+{% endblock %}

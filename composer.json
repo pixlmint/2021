@@ -1,0 +1,14 @@
+{
+    "require": {
+        "erusev/parsedown": "1.7.4",
+        "twig/twig": "^1.36",
+        "symfony/yaml" : "^2.8",
+        "picocms/pico": "2.0.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nacho\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

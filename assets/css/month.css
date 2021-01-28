@@ -1,0 +1,80 @@
+:root {
+    --month-box-radius: 20px;
+    --default-box-width: calc((100% - (6 * 5px)) / 6);
+    --box-width-2-columns: calc((100% - (2 * 5px)) / 2);
+    --box-width-4-columns: calc((100% - (4 * 5px)) / 4);
+    --box-width-3-columns: calc((100% - (3 * 5px)) / 3);
+    --box-width-1-columns: calc((100% - 5px - 4rem) / 1);
+}
+
+#months-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.month {
+    display: block;
+    width: var(--default-box-width);
+    padding-top: var(--default-box-width);
+    background-color: lightblue;
+    border-radius: var(--month-box-radius);
+    position: relative;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.month::before {
+    backdrop-filter: blur(2px);
+    display: block;
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    top: 0;
+    border-radius: var(--month-box-radius);
+}
+
+.month p {
+    position: absolute;
+    top: calc(50% - 0.5rem);
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    margin: unset;
+    text-shadow: 0 0 10px white;
+}
+
+main {
+    background-color: white;
+    min-height: unset;
+}
+
+article {
+    box-shadow: unset;
+}
+
+@media screen and (max-width: 1200px) {
+    .month {
+        width: var(--box-width-4-columns);
+        padding-top: var(--box-width-4-columns);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .month {
+        width: var(--box-width-3-columns);
+        padding-top: var(--box-width-3-columns);
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .month {
+        width: var(--box-width-1-columns);
+        padding-top: var(--box-width-1-columns);
+    }
+}

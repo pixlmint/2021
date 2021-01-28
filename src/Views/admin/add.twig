@@ -1,0 +1,11 @@
+{% extends 'admin/admin.twig' %}
+
+{% block article %}
+	<div>
+		<h1>Add a new file</h1>
+		<form method="POST" action="/admin/add">
+			<input type="date" name="journalEntry">
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<style>
+		.CodeMirror {
+			height: 70vh !important;
+		}
+
+		#toggle-nav-button {
+			display: block;
+			position: fixed;
+			top: 0;
+			right: 0;
+			z-index: 5;
+		}
+
+		#last-saved {
+			display: block;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			color: green;
+		}
+
+		@media screen and(max-width: 500px) {
+			article {
+				padding: 0;
+			}
+		}
+	</style>
+{% endblock %}
+
+{% block header %}
+	<h1>Admin</h1>
+{% endblock %}
+
+{% macro renderSubNav(subNav) %}
+	{% import _self as self %}
+	<ul>
+		{% for page in subNav %}
+			<li>
+				<a href='/admin/edit?file={{ page['id'] }}'>{{ page['title'] }}</a>
+				{% if page.children is defined %}
+					{{ self.renderSubNav(page.children) }}
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+{% endmacro %}
+
+{% from _self import renderSubNav %}
+{% block aside %}
+	<aside>
+		{{ renderSubNav(nav) }}
+	</aside>
+{% endblock %}
+
+{% block js %}
+	{{ parent ()}}
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+	<script>
+		const referer = '{{ referer }}';
+	</script>
+	<script src="/dist/admin.bundle.js"></script>
+{% endblock %}

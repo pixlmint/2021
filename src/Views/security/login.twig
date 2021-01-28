@@ -1,0 +1,18 @@
+{% extends 'base.twig' %}
+
+{% block article %}
+	<form name="login" method="POST" action="/login">
+		<h1>Login</h1>
+		{{ message }}
+		<div>
+			<input type="text" autofocus name="username" placeholder="Username">
+		</div>
+		<div>
+			<input type="password" name="password" placeholder="Password">
+		</div>
+		{% if page is defined and page is not null %}
+			<input type="hidden" name="required_page" value="{{ page }}">
+		{% endif %}
+		<button type="submit">Submit</button>
+	</form>
+{% endblock %}
