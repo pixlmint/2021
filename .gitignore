@@ -1,4 +1,15 @@
 node_modules/*
 content/*
 vendor/*
-images/*
+images/January/*
+images/February/*
+images/March/*
+images/April/*
+images/May/*
+images/June/*
+images/July/*
+images/August/*
+images/Septempber/*
+images/October/*
+images/November/*
+images/December/*
