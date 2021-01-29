@@ -385,37 +385,37 @@ nav a:hover {
 
 @font-face {
   font-family: "Roboto";
-  src: url("/assets/fonts/Roboto-Regular.ttf");
+  src: url(03523cf578d69fa923226ff457b92d90.ttf);
 }
 
 @font-face {
   font-family: "RobotoLight";
-  src: url("/assets/fonts/Roboto-Light.ttf");
+  src: url(0cea39826bd36bbfe33076c544e3a1af.ttf);
 }
 
 @font-face {
   font-family: "RobotoBold";
-  src: url("/assets/fonts/Roboto-Bold.ttf");
+  src: url(4f39c5796e60c9d8e7327a00e9a4442e.ttf);
 }
 
  @font-face {
   font-family: "BodoniModa-Black";
-  src: url("/assets/fonts/BodoniModa-Black.ttf");
+  src: url(e8ed12ed4fd49ee8667fe37b39789d1a.ttf);
 } 
 
  @font-face {
   font-family: "BodoniModa-Bold";
-  src: url("/assets/fonts/BodoniModa-Bold.ttf");
+  src: url(b9b02506ad12db59702ae52024055e0b.ttf);
 } 
 
  @font-face {
   font-family: "BodoniModa-Italic";
-  src: url("/assets/fonts/BodoniModa-Italic.ttf");
+  src: url(83246d6d400ce7cf7ea1b46fd0bbbb2b.ttf);
 } 
 
  @font-face {
   font-family: "BodoniModa-Regular";
-  src: url("/assets/fonts/BodoniModa-Regular.ttf");
+  src: url(9d82628f0f2617570f218b9206d2a5fd.ttf);
 }
 
 /* ------------------------------- END Fonts ------------------------------------------*/

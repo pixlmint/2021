@@ -1,3 +1,5 @@
+import '../css/style.css'
+
 function reindex() {
   const xhr = new XMLHttpRequest()
   xhr.open('GET', '/search')
