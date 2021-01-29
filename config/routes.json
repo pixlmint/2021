@@ -34,6 +34,18 @@
         "function": "delete"
     },
     {
+        "route": "/admin/image/upload",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\ImageController",
+        "function": "uploadImage"
+    },
+    {
+        "route": "/admin/image/load",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\ImageController",
+        "function": "loadImages"
+    },
+    {
         "route": "/login",
         "controller": "Nacho\\Controllers\\AuthenticationController",
         "function": "login"

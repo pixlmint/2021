@@ -116,9 +116,12 @@ class AdminController extends AbstractController
             return json_encode(['message' => 'successfully saved content']);
         }
 
+        $month = explode('/', $page['id'])[1];
+
         return $this->render('admin/edit.twig', [
             'page' => $page,
             'referer' => $_SERVER['HTTP_REFERER'],
+            'month' => $month,
         ]);
     }
 
