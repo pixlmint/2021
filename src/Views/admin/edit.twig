@@ -23,54 +23,6 @@
 {% endblock %}
 
 {% block asideLeft %}
-	<script>
-		function uploadImage() {
-const xhr = new XMLHttpRequest();
-xhr.open('POST', '/admin/image/upload');
-let data = new FormData();
-data.append('month', document.querySelector('[name="month"]').value);
-data.append('day', document.querySelector('[name="day"]').value);
-let files = document.querySelector('[name="image"]').files;
-for (let i = 0; i < files.length; i++) {
-	let file = files.item(i);
-	data.append(file.name, file);
-}
-xhr.send(data);
-xhr.onreadystatechange = function (e) {
-	if (xhr.readyState === 4) {
-		loadImages();
-	}
-}
-}
-
-function loadImages() {
-	const imageList = document.getElementById('images-list');
-	const xhr = new XMLHttpRequest();
-	let params = new URLSearchParams('');
-params.append('month', document.querySelector('[name="month"]').value);
-params.append('day', document.querySelector('[name="day"]').value);
-	xhr.open('GET', '/admin/image/load?' + params.toString());
-xhr.send();
-xhr.onreadystatechange = function(e) {
-	if (xhr.readyState === 4 && xhr.status < 300) {
-		imageList.innerHTML = '';
-		let response = JSON.parse(xhr.responseText);
-		console.log(response);
-		response.images.forEach(function(imageUrl) {
-			imageList.innerHTML += "<li><a class='create-md-image' href='" + imageUrl + "' target='_blank'>" + imageUrl + "</a></li>";
-		});
-
-		$('.create-md-image').on('contextmenu', function(e) {
-			const copyMe = document.getElementById('copy-me');
-			copyMe.value = "![image](" + e.target + ")";
-			copyMe.select();
-			copyMe.setSelectionRange(0, 999999);
-			document.execCommand('copy');
-		})
-	}
-}
-}
-	</script>
 	<aside>
 		<form name="image-form">
 			<h2>Images</h2>
@@ -100,7 +52,6 @@ xhr.onreadystatechange = function(e) {
 	<script>
 		$(function () {
 window.mde.value(window.decode("{{ base64_encode(page.raw_content) }}"));
-	loadImages();
 });
 	</script>
 {% endblock %}
