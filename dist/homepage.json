@@ -1,50 +1,50 @@
 [
     {
         "name": "January",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/01_January.jpg"
     },
     {
         "name": "February",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/02_February.jpg"
     },
     {
         "name": "March",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/03_March.jpg"
     },
     {
         "name": "April",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/04_April.jpg"
     },
     {
         "name": "May",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/05_May.jpg"
     },
     {
         "name": "June",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/06_June.jpg"
     },
     {
         "name": "July",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/07_July.jpg"
     },
     {
         "name": "August",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/08_August.jpg"
     },
     {
         "name": "September",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/09_September.jpg"
     },
     {
         "name": "October",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/10_October.jpg"
     },
     {
         "name": "November",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/11_November.jpg"
     },
     {
         "name": "December",
-        "image": "https://redzonekickboxing.com/wp-content/uploads/2017/04/default-image-620x600.jpg"
+        "image": "/images/home/12_December.jpg"
     }
 ]
