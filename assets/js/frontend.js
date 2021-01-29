@@ -45,15 +45,6 @@ class App {
     }
 }
 
-function addLoadingIcon(element) {
-    let icon = "<div class='loader-wrapper'><div class='loader'></div></div>"
-    element.innerHTML += icon
-}
-
-function removeLoadingIcon(element) {
-    element.querySelector('.loader-wrapper').remove()
-}
-
 const app = new App()
 let startPage = location.pathname
 if (location.pathname === '/') {

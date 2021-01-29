@@ -19,4 +19,13 @@ function reindex() {
   }
 }
 
+global.addLoadingIcon = function (element) {
+  let icon = "<div class='loader-wrapper'><div class='loader'></div></div>"
+  element.innerHTML += icon
+}
+
+global.removeLoadingIcon = function (element) {
+  element.querySelector('.loader-wrapper').remove()
+}
+
 global.reindex = reindex
