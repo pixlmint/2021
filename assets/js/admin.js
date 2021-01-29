@@ -53,7 +53,7 @@ function save() {
   window.clearInterval(saver)
   let xhr = new XMLHttpRequest()
   xhr.open('POST', '/admin/edit')
-  let form = new FormData(document.forms[0])
+  let form = new FormData(document.forms[1])
   xhr.send(form)
   xhr.onreadystatechange = function () {
     if (xhr.readyState !== 4) {
