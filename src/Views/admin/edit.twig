@@ -36,7 +36,7 @@
 {% endblock %}
 
 {% block article %}
-	<form method="POST" action="/admin">
+	<form method="POST" action="/admin" name="content-form">
 		<textarea name="content" id="content"></textarea>
 		<input type="hidden" name="file" value="{{ page.id }}">
 		<button type="button" onclick="save()">Save</button>

@@ -53,7 +53,7 @@ function save() {
   window.clearInterval(saver)
   let xhr = new XMLHttpRequest()
   xhr.open('POST', '/admin/edit')
-  let form = new FormData(document.forms[1])
+  let form = new FormData(document.forms.namedItem('content-form'))
   xhr.send(form)
   xhr.onreadystatechange = function () {
     if (xhr.readyState !== 4) {
@@ -149,3 +149,4 @@ global.$ = $;
 window.decode = decode;
 global.toggleNav = toggleNav;
 global.save = save;
+global.uploadImage = uploadImage;
