@@ -8,5 +8,11 @@
     RewriteRule .? index.php [L]
 </IfModule>
 
+ExpiresActive On
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/jpg "access plus 1 month"
+
 # Prevent file browsing
 Options -Indexes -MultiViews
