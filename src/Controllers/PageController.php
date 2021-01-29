@@ -26,10 +26,13 @@ class PageController extends AbstractController
         }
         $pages = [];
         foreach ($pagesDirs as $page) {
+            if (endswith($page, '.gitignore')) {
+                continue;
+            }
             $subPage = $this->nacho->getPage($page);
             if (is_bool($subPage)) {
                 header('HTTP/1.1 404');
-                die();
+                return $this->json(['message' => 'Unable to find This page']);
             }
             $subPage['content'] = base64_encode($this->nacho->renderPage($subPage));
             array_push($pages, $subPage);
