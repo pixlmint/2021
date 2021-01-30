@@ -2,6 +2,8 @@
 
 namespace Nacho\Controllers;
 
+use Nacho\Helpers\ImageHelper;
+
 class ImageController extends AbstractController
 {
     public function uploadImage($request)
@@ -16,8 +18,12 @@ class ImageController extends AbstractController
             mkdir("${imagesDir}${month}/${day}", 0777, true);
         }
 
+        $imgHelper = new ImageHelper();
         foreach ($_FILES as $file) {
             file_put_contents("${imagesDir}${month}/${day}/${baseFileName}" . $file['name'], file_get_contents($file['tmp_name']));
+            foreach ($imgHelper->getDefaultSizes() as $size) {
+                $imgHelper->compressImage("${imagesDir}${month}/${day}/${baseFileName}" . $file['name'], $size);
+            }
         }
 
         return $this->json(['message' => 'uploaded files']);

@@ -4,6 +4,13 @@ namespace Nacho\Helpers;
 
 class ImageHelper
 {
+    private array $defaultSizes = [100, 500, 1080];
+
+    public function getDefaultSizes(): array
+    {
+        return $this->defaultSizes;
+    }
+
     public function compressImage(string $imagePath, int $size)
     {
         // Find out path of original image
