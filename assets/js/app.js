@@ -20,6 +20,17 @@ function reindex() {
     }
   }
 }
+
+
+global.toggleFoldContent = function (foldId) {
+  let ele = document.querySelector(foldId);
+  if (ele.classList.contains('active')) {
+    ele.classList.remove('active');
+  } else {
+    ele.classList.add('active');
+  }
+}
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('/ServiceWorker.js').then(function (registration) {
