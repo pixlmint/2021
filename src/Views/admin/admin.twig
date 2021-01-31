@@ -36,6 +36,12 @@
 	<h1>Admin</h1>
 {% endblock %}
 
+{% block article %}
+	<div class="card">
+		<a href="/admin/edit/current">Edit current</a>
+	</div>
+{% endblock %}
+
 {% macro renderSubNav(subNav) %}
 	{% import _self as self %}
 	<ul>

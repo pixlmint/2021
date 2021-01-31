@@ -28,6 +28,12 @@
         "function": "edit"
     },
     {
+        "route": "/admin/edit/current",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "editCurrent"
+    },
+    {
         "route": "/admin/delete",
         "min_role": "Editor",
         "controller": "Nacho\\Controllers\\AdminController",

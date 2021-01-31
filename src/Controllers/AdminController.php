@@ -102,6 +102,28 @@ class AdminController extends AbstractController
         ]);
     }
 
+    public function editCurrent($request)
+    {
+        // get name of current file
+        $now = new \DateTime();
+        $title = $now->format('Y-m-d') . '.md';
+        $month = $now->format('F');
+        $fileDir = $_SERVER['DOCUMENT_ROOT'] . "/content/${month}/${title}";
+        // check if file exists, if not create it
+        $content =
+            "---\ntitle: " .
+            rtrim($title, '.md') .
+            "\ndate: " .
+            $now->format('Y-m-d H:i') .
+            "\n---";
+        if (!is_file($fileDir)) {
+            file_put_contents($fileDir, $content);
+        }
+
+        // redirect to edit page of current file
+        return $this->redirect("/admin/edit?file=/${month}/" . rtrim($title, '.md'));
+    }
+
     function edit($request)
     {
         $page = $this->nacho->getPage($_REQUEST['file']);
