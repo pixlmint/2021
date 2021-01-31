@@ -1,11 +1,6 @@
 const $ = require('jquery');
 import { decode, encode } from 'js-base64';
 
-function requestPage(event) {
-    event.preventDefault()
-    app.loadPage(event.target.getAttribute('page'))
-}
-
 class App {
     constructor() {
         this.nav = []
@@ -52,35 +47,3 @@ if (location.pathname === '/') {
 }
 // app.loadNav()
 app.loadPage(startPage)
-
-function getHeadingsInView() {
-    let eleFound = false
-    $('h1,h2,h3,h4').each(function () {
-        try {
-            document
-                .querySelector('[href="#' + this.id + '"]')
-                .classList.remove('active')
-        } catch (e) {
-        }
-        if (this.getBoundingClientRect().y >= window.scrollY && !eleFound) {
-            eleFound = true
-            let link = document.querySelector('[href="#' + this.id + '"]')
-            // if (link.scrollIntoViewIfNeeded !== undefined) {
-            //   link.scrollIntoViewIfNeeded()
-            // } else {
-            //   link.scrollIntoView()
-            // }
-            link.classList.add('active')
-        }
-    })
-}
-
-function toggleMainNav() {
-    const hamburg = document.getElementById('hamburg')
-    const menu = document.querySelector('nav#site-nav')
-    if (hamburg.checked) {
-        menu.classList.remove('collapsed')
-    } else {
-        menu.classList.add('collapsed')
-    }
-}
