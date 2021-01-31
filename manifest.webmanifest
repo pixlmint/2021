@@ -44,8 +44,9 @@
             "url": "/admin",
             "icons": [
                 {
-                    "src": "/dist/manifest/admin.png",
+                    "src": "/dist/manifest/admin96x96.png",
                     "type": "image/png",
+                    "sizes": "96x96",
                     "purpose": "any"
                 }
             ]
