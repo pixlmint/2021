@@ -55,8 +55,9 @@ function getContent($route)
     $userHandler = new JsonUserHandler();
     $nacho = new Nacho($request, $userHandler);
     if (isset($route['min_role']) && !$nacho->isGranted($route['min_role'])) {
-        header('Http/1.1 401');
-        return 'You are not allowed to view this page';
+        header('Http/1.1 302');
+        header('Location: /login?required_page=' . $_SERVER['REDIRECT_URL']);
+        die();
     }
     $controllerDir = $route['controller'];
     $cnt = new $controllerDir($nacho);

@@ -11,14 +11,9 @@ class AdminController extends AbstractController
     public function __construct(Nacho $nacho)
     {
         parent::__construct($nacho);
-        if (!$this->isGranted('Reader')) {
-            header('Http/1.1 403');
-            echo 'You are not allowed to view this part of the page. <a href="/">Return</a>';
-            die();
-        }
         if (!$this->isGranted('Editor')) {
-            header('Http/1.1 401');
-            echo 'You are not signed in. <a href="/">Return</a>';
+            header('Http/1.1 302');
+            header('Location: /login?required_page=' . $_SERVER['REDIRECT_URL']);
             die();
         }
     }
@@ -108,7 +103,7 @@ class AdminController extends AbstractController
         $now = new \DateTime();
         $title = $now->format('Y-m-d') . '.md';
         $month = $now->format('F');
-        $fileDir = $_SERVER['DOCUMENT_ROOT'] . "/content/${month}/${title}";
+        $fileDir = $_SERVER['DOCUMENT_ROOT'] . "//${month}/${title}";
         // check if file exists, if not create it
         $content =
             "---\ntitle: " .
