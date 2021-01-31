@@ -19,14 +19,18 @@ class ImageController extends AbstractController
         }
 
         $imgHelper = new ImageHelper();
+        $uploadedFiles = [];
         foreach ($_FILES as $file) {
             file_put_contents("${imagesDir}${month}/${day}/${baseFileName}" . $file['name'], file_get_contents($file['tmp_name']));
             foreach ($imgHelper->getDefaultSizes() as $size) {
                 $imgHelper->compressImage("${imagesDir}${month}/${day}/${baseFileName}" . $file['name'], $size);
+                if ($size === 500) {
+                    array_push($uploadedFiles, "/images/${month}/${day}/${size}/${baseFileName}" . $file['name']);
+                }
             }
         }
 
-        return $this->json(['message' => 'uploaded files']);
+        return $this->json(['message' => 'uploaded files', 'files' => $uploadedFiles]);
     }
 
     public function loadImages($request)

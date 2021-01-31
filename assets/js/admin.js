@@ -99,6 +99,13 @@ function uploadImage() {
   xhr.send(data);
   xhr.onreadystatechange = function (e) {
     if (xhr.readyState === 4) {
+      console.log(xhr.responseText);
+      let data = JSON.parse(xhr.responseText);
+      data.files.forEach(function (img) {
+        let text = window.mde.value();
+        text += "\n\n![image](" + location.origin + encodeURI(img) + ")";
+        window.mde.value(text);
+      })
       loadImages();
     }
   }
@@ -142,7 +149,7 @@ $(function () {
   }
 
   $('#page-menu ul').css('display', display ? 'block' : 'none')
-	loadImages();
+  loadImages();
 })
 
 global.$ = $;
