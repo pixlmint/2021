@@ -37,6 +37,20 @@
             "purpose": "maskable any"
         }
     ],
+    "shortcuts": [
+        {
+            "name": "Admin",
+            "description": "Visit Admin Page",
+            "url": "/admin",
+            "icons": [
+                {
+                    "src": "/dist/manifest/admin.png",
+                    "type": "image/png",
+                    "purpose": "any"
+                }
+            ]
+        }
+    ],
     "screenshots": [],
     "generated": "true"
 }
