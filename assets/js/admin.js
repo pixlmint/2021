@@ -99,6 +99,13 @@ function uploadImage() {
   xhr.send(data);
   xhr.onreadystatechange = function (e) {
     if (xhr.readyState === 4) {
+      console.log(xhr.responseText);
+      let data = JSON.parse(xhr.responseText);
+      data.files.forEach(function (img) {
+        let text = window.mde.value();
+        text += "\n\n![image](" + location.origin + encodeURI(img) + ")";
+        window.mde.value(text);
+      })
       loadImages();
     }
   }
@@ -118,12 +125,12 @@ function loadImages() {
       let response = JSON.parse(xhr.responseText);
       console.log(response);
       response.images.forEach(function (imageUrl) {
-        imageList.innerHTML += "<li><a class='create-md-image' href='" + imageUrl + "' target='_blank'>" + imageUrl + "</a></li>";
+        imageList.innerHTML += "<li><a href='" + imageUrl + "' target='_blank' class='create-md-image'><img src='" + imageUrl + "'></a></li>";
       });
 
       $('.create-md-image').on('contextmenu', function (e) {
         const copyMe = document.getElementById('copy-me');
-        copyMe.value = "![image](" + e.target + ")";
+        copyMe.value = "![image](" + e.target.src + ")";
         copyMe.select();
         copyMe.setSelectionRange(0, 999999);
         document.execCommand('copy');
@@ -142,7 +149,7 @@ $(function () {
   }
 
   $('#page-menu ul').css('display', display ? 'block' : 'none')
-	loadImages();
+  loadImages();
 })
 
 global.$ = $;
