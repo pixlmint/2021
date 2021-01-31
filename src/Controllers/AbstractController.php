@@ -32,6 +32,13 @@ abstract class AbstractController
         return $this->twig;
     }
 
+    protected function redirect(string $route)
+    {
+        header('HTTP/1.1 302');
+        header("Location: ${route}");
+        die();
+    }
+
     protected function json(array $json = [], int $code = 200)
     {
         header("HTTP/1.1 ${code}");
