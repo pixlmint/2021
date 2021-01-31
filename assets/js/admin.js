@@ -1,3 +1,5 @@
+import '../css/admin.css'
+
 var SimpldeMDE = require('simplemde')
 const $ = require('jquery');
 import { decode } from 'js-base64';

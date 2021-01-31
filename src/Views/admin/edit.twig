@@ -24,14 +24,16 @@
 
 {% block asideLeft %}
 	<aside>
+		<a class="fold-button" href="javascript:void(0)" onclick="toggleFoldContent('#images-fold-content')"><h2>Images</h2></a>
 		<form name="image-form">
-			<h2>Images</h2>
 			<input type="file" onchange="uploadImage()" multiple name="image">
 			<input type="hidden" name="month" value="{{ month }}">
 			<input type="hidden" name="day" value="{{ page.title }}">
 		</form>
-		<ul id="images-list"></ul>
-		<input type="text" value="" id="copy-me">
+		<div class="fold-content" id="images-fold-content">
+			<ul id="images-list"></ul>
+			<input type="text" value="" id="copy-me">
+		</div>
 	</aside>
 {% endblock %}
 

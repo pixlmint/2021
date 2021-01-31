@@ -8,12 +8,15 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: "Roboto";
   min-height: 100vh;
   width: 100vw;
-  overflow-x: hidden;
   background-color: rgb(243, 243, 243);
 }
 
@@ -23,9 +26,9 @@ header {
 }
 
 header h1 {
-    font-size: 10rem;
-    margin: unset;
-    text-align: center;
+  font-size: 10rem;
+  margin: unset;
+  text-align: center;
 }
 
 main {
@@ -402,22 +405,22 @@ nav a:hover {
   src: url(4f39c5796e60c9d8e7327a00e9a4442e.ttf);
 }
 
- @font-face {
+@font-face {
   font-family: "BodoniModa-Black";
   src: url(e8ed12ed4fd49ee8667fe37b39789d1a.ttf);
-} 
+}
 
- @font-face {
+@font-face {
   font-family: "BodoniModa-Bold";
   src: url(b9b02506ad12db59702ae52024055e0b.ttf);
-} 
+}
 
- @font-face {
+@font-face {
   font-family: "BodoniModa-Italic";
   src: url(83246d6d400ce7cf7ea1b46fd0bbbb2b.ttf);
-} 
+}
 
- @font-face {
+@font-face {
   font-family: "BodoniModa-Regular";
   src: url(9d82628f0f2617570f218b9206d2a5fd.ttf);
 }
