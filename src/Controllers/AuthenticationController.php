@@ -31,11 +31,13 @@ class AuthenticationController extends AbstractController
                 }
                 header('HTTP/1.1 302');
                 header('Location: ' . $_REQUEST['required_page']);
+                die();
             }
         }
 
         return $this->render('security/login.twig', [
             'message' => $message,
+            'page' => $_REQUEST['required_page'],
         ]);
     }
 
