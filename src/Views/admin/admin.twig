@@ -48,7 +48,7 @@
 	{% import _self as self %}
 	{% for page in subNav %}
 		<li>
-			<a href='/admin/edit?file={{ page[' id'] }}'>{{ page['title'] }}</a>
+			<a href='/admin/edit?file={{ page['id'] }}'>{{ page['title'] }}</a>
 			{% if page.children is defined %}
 				<ul>
 					{{ self.renderSubNav(page.children) }}
