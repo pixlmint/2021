@@ -16,6 +16,11 @@
 		<link rel="apple-touch-icon" href="/public/manifest/icon-512x512.png">
 	</head>
 	<body>
+		{% block returnLink %}
+			{% if is_granted('Editor') %}
+				<a href="/admin">Admin</a>
+			{% endif %}
+		{% endblock %}
 		{% block header %}
 			<header>
 				<h1>2021</h1>

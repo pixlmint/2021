@@ -30,6 +30,7 @@ abstract class AbstractController
             $this->twig->addFunction(new TwigFunction('month_index', function($var) {
                 return array_search($var, MONTHS);
             }));
+            $this->twig->addFunction(new TwigFunction('is_granted', [$this, 'is_granted']));
         }
 
         return $this->twig;
@@ -55,6 +56,11 @@ abstract class AbstractController
         $args['nacho'] = $this->nacho;
     
         return $this->getTwig()->render($file, $args);
+    }
+
+    public function is_granted($role)
+    {
+        return $this->isGranted($role);
     }
 
     protected function isGranted($role)
