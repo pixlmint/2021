@@ -1,6 +1,6 @@
 function fetchHomepage() {
     addLoadingIcon(document.querySelector('article')) 
-    fetch('/dist/homepage.json')
+    fetch('/public/homepage.json')
         .then(response => response.json())
         .then(function (data) {
             data.forEach(function(month) {

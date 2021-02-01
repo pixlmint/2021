@@ -10,7 +10,7 @@ module.exports = {
     editHome: './assets/js/edit-home.js',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public/build'),
     filename: '[name].bundle.js',
     publicPath: '',
   },
