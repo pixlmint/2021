@@ -6,17 +6,21 @@
 {% endblock %}
 
 {% block header %}
-	<h1>Home</h1>
+	<header>
+		<h1>Home</h1>
+	</header>
 {% endblock %}
 
 {% block asideLeft %}
-<aside>
-    <ul>
-        {% for month in months %}
-            <li><a href="#{{ month }}">{{ month }}</a></li>
-        {% endfor %}
-    </ul>
-</aside>
+	<aside>
+		<ul>
+			{% for month in months %}
+				<li>
+					<a href="#{{ month }}">{{ month }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</aside>
 
 {% endblock %}
 

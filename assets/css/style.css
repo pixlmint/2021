@@ -23,12 +23,32 @@ body {
 header {
   background-color: white;
   padding: 0 1rem;
+  position: relative;
+}
+
+header::before {
+    backdrop-filter: blur(2px);
+    display: block;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.4) 40%, transparent 100%);
+    border-radius: var(--month-box-radius);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 header h1 {
+  z-index: 3;
+  position: relative;
+  display: block;
   font-size: 10rem;
   margin: unset;
   text-align: center;
+  background-size: cover;
+  padding: 1rem;
 }
 
 main {

@@ -15,6 +15,9 @@ class PageController extends AbstractController
         $tmp = scandir($directory);
         $pagesDirs = [];
         foreach ($tmp as $subPage) {
+            if (endswith($subPage, '.gitignore')) {
+                continue;
+            }
             if (!is_file($directory . '/' . $subPage)) {
                 continue;
             }
@@ -26,9 +29,6 @@ class PageController extends AbstractController
         }
         $pages = [];
         foreach ($pagesDirs as $page) {
-            if (endswith($page, '.gitignore')) {
-                continue;
-            }
             $subPage = $this->nacho->getPage($page);
             if (is_bool($subPage)) {
                 header('HTTP/1.1 404');
@@ -38,6 +38,16 @@ class PageController extends AbstractController
             array_push($pages, $subPage);
         }
 
+        usort($pages, [$this, 'sortByDate']);
+
         return $this->json($pages);
+    }
+
+    public function sortByDate($a, $b) 
+    {
+        $t1 = strtotime($a['title']);
+        $t2 = strtotime($b['title']);
+
+        return $t2 - $t1;
     }
 }

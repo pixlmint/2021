@@ -27,6 +27,9 @@ abstract class AbstractController
             $this->twig->addFunction(new TwigFunction('base64_encode', 'base64_encode'));
             $this->twig->addFunction(new TwigFunction('base64_decode', 'base64_decode'));
             $this->twig->addFunction(new TwigFunction('is_array', 'is_array'));
+            $this->twig->addFunction(new TwigFunction('month_index', function($var) {
+                return array_search($var, MONTHS);
+            }));
         }
 
         return $this->twig;
