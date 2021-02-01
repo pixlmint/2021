@@ -1,17 +1,5 @@
 {% extends 'base.twig' %}
 
-{% block css %}
-	{{ parent() }}
-	<style>
-		@media screen and(max-width: 600px) {
-			header h1 {
-				font-size: calc(100vw /({{ month|length }} - 0.5));
-			}
-		}
-	</style>
-
-{% endblock %}
-
 {% block header %}
 	<header style="background-image: url('/images/home/{{ month_index(month) }}_{{ month }}/banner.jpg">
 		<h1 style="text-align: left">{{ month }}</h1>
