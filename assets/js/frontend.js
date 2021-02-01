@@ -1,4 +1,3 @@
-const $ = require('jquery');
 import { decode, encode } from 'js-base64';
 
 class App {
@@ -45,5 +44,5 @@ let startPage = location.pathname
 if (location.pathname === '/') {
     startPage = '/';
 }
-// app.loadNav()
+
 app.loadPage(startPage)
