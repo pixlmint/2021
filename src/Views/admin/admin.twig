@@ -44,27 +44,32 @@
 
 {% macro renderSubNav(subNav) %}
 	{% import _self as self %}
-	<ul>
-		{% for page in subNav %}
-			<li>
-				<a href='/admin/edit?file={{ page['id'] }}'>{{ page['title'] }}</a>
-				{% if page.children is defined %}
+	{% for page in subNav %}
+		<li>
+			<a href='/admin/edit?file={{ page[' id'] }}'>{{ page['title'] }}</a>
+			{% if page.children is defined %}
+				<ul>
 					{{ self.renderSubNav(page.children) }}
-				{% endif %}
-			</li>
-		{% endfor %}
-	</ul>
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
 {% endmacro %}
 
 {% from _self import renderSubNav %}
 {% block aside %}
 	<aside>
-		{{ renderSubNav(nav) }}
+		<ul>
+			<li>
+				<a href='/admin/edit/home'>Home</a>
+				{{ renderSubNav(nav) }}
+			</li>
+		</ul>
 	</aside>
 {% endblock %}
 
 {% block js %}
-	{{ parent ()}}
+	{{ parent()}}
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 	<script>

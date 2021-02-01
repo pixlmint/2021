@@ -7,6 +7,7 @@ module.exports = {
     frontend: './assets/js/frontend.js',
     admin: './assets/js/admin.js',
     home: './assets/js/home.js',
+    editHome: './assets/js/edit-home.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

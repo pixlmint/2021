@@ -5,20 +5,24 @@
         gap: 1rem;
         padding: unset;
     }
-
     article {
         padding: unset;
     }
-
-    main > * {
+    main>* {
         width: 100% !important;
     }
-
     .fold-content {
         display: none;
     }
-
     .fold-content.active {
         display: block;
     }
+}
+
+.fold-content-desktop {
+    display: none;
+}
+
+.fold-content-desktop.active {
+    display: block;
 }

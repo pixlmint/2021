@@ -11,26 +11,42 @@ class ImageHelper
         return $this->defaultSizes;
     }
 
-    public function compressImage(string $imagePath, int $size)
+    public function compressImage(string $imagePath, int $size, string $targetPath = '', string $fileName = '')
     {
-        // Find out path of original image
-        $originalImgPath = '';
-        $splImgPath = explode('/', $imagePath);
-        $fileName = array_pop($splImgPath);
-        $originalImgPath = implode('/', $splImgPath);
+        if (!$targetPath) {
+            // Find out path of original image
+            $originalImgPath = '';
+            $splImgPath = explode('/', $imagePath);
+            $originalImgPath = implode('/', $splImgPath);
+            $targetPath = "${originalImgPath}/${size}";
+        }
+        if (!$fileName) {
+            $splImgPath = explode('/', $imagePath);
+            $fileName = array_pop($splImgPath);
+        }
 
         // Scale down image
         $imgObject = imagecreatefromstring(file_get_contents($imagePath));
         $scaled = imagescale($imgObject, $size);
 
         // Create new path if it does not exist yet
-        if (!is_dir("${originalImgPath}/${size}")) {
-            mkdir("${originalImgPath}/${size}", 0777, true);
+        if (!is_dir($targetPath)) {
+            mkdir($targetPath, 0777, true);
         }
 
         // Save scaled down version in new path
-        imagejpeg($scaled, "${originalImgPath}/${size}/${fileName}");
+        imagejpeg($scaled, "${targetPath}/${fileName}");
 
-        return "${originalImgPath}/${size}/${fileName}";
+        return "${targetPath}/${fileName}";
+    }
+
+    public static function base64_to_jpeg($base64_string)
+    {
+        // split the string on commas
+        // $data[ 0 ] == "data:image/png;base64"
+        // $data[ 1 ] == <actual base64 string>
+        $data = explode(',', $base64_string);
+         
+        return base64_decode($data[1]);
     }
 }
