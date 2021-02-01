@@ -21,6 +21,13 @@ function reindex() {
   }
 }
 
+window.onload = function(event) {
+  const title = document.querySelector('h1')
+  if (window.innerWidth <= 600) {
+    title.style.fontSize = window.innerWidth / (title.innerText.length - 0.5) + 'px'
+  }
+}
+
 
 global.dataUrlToFile = function (dataUrl) {
   // convert base64 to raw binary data held in a string
