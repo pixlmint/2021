@@ -28,6 +28,18 @@
         "function": "edit"
     },
     {
+        "route": "/admin/edit/home",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "editHome"
+    },
+    {
+        "route": "/admin/edit/home/upload-original",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "uploadOriginal"
+    },
+    {
         "route": "/admin/edit/current",
         "min_role": "Editor",
         "controller": "Nacho\\Controllers\\AdminController",

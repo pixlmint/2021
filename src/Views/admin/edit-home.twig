@@ -1,0 +1,56 @@
+{% extends 'admin/admin.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link rel="stylesheet" href="/dist/editHome.css">
+{% endblock %}
+
+{% block header %}
+	<h1>Home</h1>
+{% endblock %}
+
+{% block asideLeft %}
+<aside>
+    <ul>
+        {% for month in months %}
+            <li><a href="#{{ month }}">{{ month }}</a></li>
+        {% endfor %}
+    </ul>
+</aside>
+
+{% endblock %}
+
+{% block article %}
+	{% for month in months %}
+		<div class="month">
+			<h3 id="{{ month }}">{{ month }}</h3>
+			<input type="file" id="{{ month }}_upload" onchange="uploadOriginal(this.files[0], '{{ month }}')" name="{{ month }}_upload">
+			<div class="row">
+				<div class="col-sm-12">
+					<label>Original</label><br>
+					<img id="{{ month }}_image" src="{{ files[month].original }}">
+				</div>
+				<div class="col-sm-12">
+					<label>Cover</label><br>
+					<img id="{{ month }}_cover" src="{{ files[month].original }}">
+				</div>
+				<div class="col-sm-12">
+					<label>Banner</label><br>
+					<img id="{{ month }}_banner" src="{{ files[month].original }}">
+				</div>
+			</div>
+			<a class="btn btn-primary" onclick="storeFiles(event, '{{ month }}')" href="javascript:void(0)">Save</a>
+		</div>
+		<script>
+			window.setTimeout(function () {
+                setCroppers('{{ month }}', '{{ cropData[month]|raw }}');
+            }, 1000)
+		</script>
+	{% endfor %}
+{% endblock %}
+
+
+{% block js %}
+	{{ parent() }}
+	<script src="/dist/editHome.bundle.js"></script>
+{% endblock %}

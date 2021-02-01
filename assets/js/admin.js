@@ -26,6 +26,10 @@ if (location.pathname === '/admin/edit') {
       }
     })
 
+  $(function () {
+    loadImages();
+  })
+
   window.mde = mde
 }
 
@@ -69,14 +73,6 @@ function save() {
 
 if (!referer.includes(location.hostname + '/admin')) {
   localStorage.setItem('referer', referer)
-}
-
-if (localStorage.getItem('referer') !== null) {
-  document
-    .getElementById('referer')
-    .setAttribute('href', localStorage.getItem('referer'))
-} else {
-  document.getElementById('referer').setAttribute('href', location.hostname)
 }
 
 function toggleNav() {
@@ -140,19 +136,6 @@ function loadImages() {
     }
   }
 }
-
-$(function () {
-  let display = localStorage.getItem('showPageMenu')
-
-  if (display === null) {
-    display = false
-  } else {
-    display = display === 'true'
-  }
-
-  $('#page-menu ul').css('display', display ? 'block' : 'none')
-  loadImages();
-})
 
 global.$ = $;
 window.decode = decode;

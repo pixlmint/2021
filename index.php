@@ -11,6 +11,7 @@ session_regenerate_id();
 
 define('VIEWS_DIR', $_SERVER['DOCUMENT_ROOT'] . '/src/Views');
 define('FILE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/users.json');
+define('MONTHS', ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']);
 
 if (isset($_SERVER['REDIRECT_URL'])) {
     $path = $_SERVER['REDIRECT_URL'];

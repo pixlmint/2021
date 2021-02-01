@@ -3,6 +3,7 @@
 namespace Nacho\Controllers;
 
 use DateTime;
+use Nacho\Helpers\ImageHelper;
 use Nacho\Helpers\NavRenderer;
 use Nacho\Nacho;
 
@@ -69,6 +70,72 @@ class AdminController extends AbstractController
         returnHome();
     }
 
+    public function editHome($request)
+    {
+        $imagesDir = $request->documentRoot . '/images/home';
+        $fileNames = ['original', 'cover', 'banner'];
+        $images = [];
+        $cropData = [];
+        foreach (MONTHS as $key => $month) {
+            $tmpImages = [];
+            if (!is_dir("${imagesDir}/${key}_${month}")) {
+                mkdir("${imagesDir}/${key}_${month}", 0777, true);
+                file_put_contents("${imagesDir}/${key}_${month}/.gitignore", "*.jpg\n*.json");
+                file_put_contents("${imagesDir}/${key}_${month}/crop-data.json", "{}");
+            }
+            foreach ($fileNames as $name) {
+                if (is_file("${imagesDir}/${key}_${month}/${name}.jpg")) {
+                    $tmpImages[$name] = "/images/home/${key}_${month}/${name}.jpg";
+                }
+            }
+            $images[$month] = $tmpImages;
+            $cropData[$month] = file_get_contents("${imagesDir}/${key}_${month}/crop-data.json");
+        }
+
+        // if this is a post request, store new files
+        if (strtoupper($request->requestMethod) === 'POST') {
+            $imageHelper = new ImageHelper();
+            $month = $_REQUEST['month'];
+            $key = array_search($month, MONTHS);
+            $cover = $_REQUEST['cover'];
+            $banner = $_REQUEST['banner'];
+            $cropCover = json_decode($_REQUEST['cropCover'], true);
+            $cropBanner = json_decode($_REQUEST['cropBanner'], true);
+            $cropData = ['cover' => $cropCover, 'banner' => $cropBanner];
+            file_put_contents("${imagesDir}/${key}_${month}/original.jpg", file_get_contents("${imagesDir}/${key}_${month}/tmp.original.jpg"));
+            file_put_contents("${imagesDir}/${key}_${month}/crop-data.json", json_encode($cropData));
+            $coverName = md5(random_bytes(10));
+            $bannerName = md5(random_bytes(10));
+            file_put_contents("/tmp/${coverName}.jpeg", ImageHelper::base64_to_jpeg($cover));
+            file_put_contents("/tmp/${bannerName}.jpeg", ImageHelper::base64_to_jpeg($banner));
+            $imageHelper->compressImage("/tmp/${coverName}.jpeg", 200, "${imagesDir}/${key}_${month}", 'cover.jpg');
+            $imageHelper->compressImage("/tmp/${bannerName}.jpeg", 1080, "${imagesDir}/${key}_${month}", 'banner.jpg');
+        }
+
+
+        return $this->render('admin/edit-home.twig', [
+            'months' => MONTHS,
+            'files' => $images,
+            'cropData' => $cropData,
+        ]);
+    }
+
+    public function uploadOriginal($request)
+    {
+        if (strtoupper($request->requestMethod) !== 'POST') {
+            return $this->json(['only post allowed'], 405);
+        }
+        $imagesDir = $request->documentRoot . '/images/home';
+        $month = $_REQUEST['month'];
+        $original = $_FILES['original'];
+        $key = array_search($month, MONTHS);
+
+        $imageHelper = new ImageHelper();
+        $imageHelper->compressImage($original['tmp_name'], 1000, "${imagesDir}/${key}_${month}", 'tmp.original.jpg');
+
+        return $this->json(['file' => "/images/home/${key}_${month}/tmp.original.jpg"]);
+    }
+
     public function add($request)
     {
         if (strtolower($request->requestMethod) === 'post') {
@@ -87,12 +154,11 @@ class AdminController extends AbstractController
             header('HTTP/1.1 302');
         }
 
-        $pages = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         $now = new \DateTime();
 
         return $this->render('admin/add.twig', [
             'parent' => $_REQUEST['parent'],
-            'pages' => $pages,
+            'pages' => MONTHS,
             'currentMonth' => intval($now->format('n')) - 1,
         ]);
     }
