@@ -1,0 +1,28 @@
+@media screen and (max-width: 600px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: unset;
+    }
+    article {
+        padding: unset;
+    }
+    main>* {
+        width: 100% !important;
+    }
+    .fold-content {
+        display: none;
+    }
+    .fold-content.active {
+        display: block;
+    }
+}
+
+.fold-content-desktop {
+    display: none;
+}
+
+.fold-content-desktop.active {
+    display: block;
+}
