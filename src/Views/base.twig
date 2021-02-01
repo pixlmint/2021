@@ -9,11 +9,11 @@
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		{% block css %}
-			<link rel="stylesheet" href="/dist/app.css" type="text/css"/>
+			<link rel="stylesheet" href="/public/build/app.css" type="text/css"/>
 		{% endblock %}
 		<meta name="description" content=""/>
 		<link rel="manifest" href="/manifest.webmanifest">
-		<link rel="apple-touch-icon" href="/dist/manifest/icon-512x512.png">
+		<link rel="apple-touch-icon" href="/public/manifest/icon-512x512.png">
 	</head>
 	<body>
 		{% block header %}
@@ -32,7 +32,7 @@
 			{% block footer %}{% endblock %}
 		</footer>
 		{% block js %}
-			<script src="/dist/app.bundle.js"></script>
+			<script src="/public/build/app.bundle.js"></script>
 		{% endblock %}
 	</body>
 </html>

@@ -2,7 +2,7 @@
 
 {% block css %}
 	{{ parent() }}
-	<link rel="stylesheet" href="/dist/admin.css">
+	<link rel="stylesheet" href="/public/build/admin.css">
 	<style>
 		.CodeMirror {
 			height: 70vh !important;
@@ -77,5 +77,5 @@
 	<script>
 		const referer = '{{ referer }}';
 	</script>
-	<script src="/dist/admin.bundle.js"></script>
+	<script src="/public/build/admin.bundle.js"></script>
 {% endblock %}
