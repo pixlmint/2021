@@ -1,0 +1,50 @@
+[
+    {
+        "name": "January",
+        "image": "/images/home/0_January/cover.jpg"
+    },
+    {
+        "name": "February",
+        "image": "/images/home/1_February/cover.jpg"
+    },
+    {
+        "name": "March",
+        "image": "/images/home/2_March/cover.jpg"
+    },
+    {
+        "name": "April",
+        "image": "/images/home/3_April/cover.jpg"
+    },
+    {
+        "name": "May",
+        "image": "/images/home/4_May/cover.jpg"
+    },
+    {
+        "name": "June",
+        "image": "/images/home/5_June/cover.jpg"
+    },
+    {
+        "name": "July",
+        "image": "/images/home/6_July/cover.jpg"
+    },
+    {
+        "name": "August",
+        "image": "/images/home/7_August/cover.jpg"
+    },
+    {
+        "name": "September",
+        "image": "/images/home/8_September/cover.jpg"
+    },
+    {
+        "name": "October",
+        "image": "/images/home/9_October/cover.jpg"
+    },
+    {
+        "name": "November",
+        "image": "/images/home/10_November/cover.jpg"
+    },
+    {
+        "name": "December",
+        "image": "/images/home/11_December/cover.jpg"
+    }
+]
