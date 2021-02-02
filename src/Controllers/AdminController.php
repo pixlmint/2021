@@ -165,11 +165,53 @@ class AdminController extends AbstractController
 
     public function editCurrent($request)
     {
+        $file = $this->getCurrentFile();
+
+        return $this->redirect("/admin/edit?file=" . rtrim($file, '.md'));
+    }
+
+    public function publishStatus($request)
+    {
+        if (strtoupper($request->requestMethod) !== 'POST') {
+            return $this->json(['post requests only'], 405);
+        }
+        $contentDir = $_SERVER['DOCUMENT_ROOT'] . '/content';
+        $fileName = $this->getCurrentFile();
+
+        $content = file_get_contents("${contentDir}/${fileName}");
+
+        $content .= $_REQUEST['status'] . "\n\n";
+        file_put_contents("${contentDir}/${fileName}", $content);
+
+        return $this->json(['message' => 'Successfully added status']);
+    }
+
+    public function appendImage($request)
+    {
+        if (strtoupper($request->requestMethod) !== 'POST') {
+            return $this->json(['post requests only'], 405);
+        }
+
+        $image = $_FILES['image'];
+        $imageHelper = new ImageHelper();
+        $generated = $imageHelper->storeEntryImage($image['tmp_name']);
+
+        $contentDir = $_SERVER['DOCUMENT_ROOT'] . '/content';
+        $file = $this->getCurrentFile();
+        $content = file_get_contents("${contentDir}${file}");
+        $content .= "![image](" . $generated[1] . ")\n\n";
+        file_put_contents("${contentDir}${file}", $content);
+
+        return $this->json(['message' => 'Successfully appended Image']);
+    }
+
+    private function getCurrentFile()
+    {
         // get name of current file
         $now = new \DateTime();
         $title = $now->format('Y-m-d') . '.md';
         $month = $now->format('F');
-        $fileDir = $_SERVER['DOCUMENT_ROOT'] . "//${month}/${title}";
+        $fileDir = $_SERVER['DOCUMENT_ROOT'] . "/content/${month}/${title}";
         // check if file exists, if not create it
         $content =
             "---\ntitle: " .
@@ -181,8 +223,7 @@ class AdminController extends AbstractController
             file_put_contents($fileDir, $content);
         }
 
-        // redirect to edit page of current file
-        return $this->redirect("/admin/edit?file=/${month}/" . rtrim($title, '.md'));
+        return "/${month}/${title}";
     }
 
     function edit($request)

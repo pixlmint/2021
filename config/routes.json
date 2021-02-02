@@ -46,6 +46,18 @@
         "function": "editCurrent"
     },
     {
+        "route": "/admin/edit/current/publish-status",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "publishStatus"
+    },
+    {
+        "route": "/admin/edit/current/append-image",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "appendImage"
+    },
+    {
         "route": "/admin/delete",
         "min_role": "Editor",
         "controller": "Nacho\\Controllers\\AdminController",

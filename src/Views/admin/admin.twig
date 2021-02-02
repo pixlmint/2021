@@ -23,12 +23,6 @@
 			right: 0;
 			color: green;
 		}
-
-		@media screen and(max-width: 500px) {
-			article {
-				padding: 0;
-			}
-		}
 	</style>
 {% endblock %}
 
@@ -43,8 +37,17 @@
 {% endblock %}
 
 {% block article %}
-	<div class="card">
-		<a href="/admin/edit/current">Edit current</a>
+	<div class="row card-list">
+		<div class="card col-12" id="status-card">
+			<input style="width: 95%;" type="text" id="status" placeholder="Quickly add a status">
+			<a class="btn btn-primary" onclick="publishStatus()" href="javascript:void(0)">Publish</a>
+		</div>
+		<div class="col-4 card" id="edit-current-card">
+			<a class="btn btn-primary" href="/admin/edit/current">Edit current Entry</a>
+		</div>
+		<div class="col-6 card" id="append-image-card">
+			<input type="file" onchange="appendImage(this.files[0])" id="upload-file">
+		</div>
 	</div>
 {% endblock %}
 

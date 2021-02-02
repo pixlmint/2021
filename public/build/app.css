@@ -2,6 +2,7 @@
 
 :root {
   --box-border-radius: 20px;
+  --primary: #00bb2f;
 }
 
 *::before, *::after {
@@ -27,17 +28,17 @@ header {
 }
 
 header::before {
-    backdrop-filter: blur(2px);
-    display: block;
-    content: '';
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.4) 40%, transparent 100%);
-    border-radius: var(--month-box-radius);
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 0;
+  backdrop-filter: blur(2px);
+  display: block;
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.4) 40%, transparent 100%);
+  border-radius: var(--month-box-radius);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 header h1 {
@@ -130,6 +131,77 @@ h3 {
 
 /** --------------------------- END Titles -------------------------------------------------------- **/
 
+/** ---------------------------- Rows ------------------------------------------------------------- **/ 
+.card-list {
+  gap: 0.5rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: block;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  min-width: calc(33% - 3rem);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 -20px;
+}
+
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.6666%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.3%;
+}
+
+.col-5 {
+  width: 41.666%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.3333%;
+}
+
+.col-8 {
+  width: 66.66666%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.333%;
+}
+
+.col-11 {
+  width: 91.666%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+/** -------------------------------- END Rows ----------------------------------------------------- **/
+
 /** ----------------------------- Links ----------------------------------------------------------- **/
 
 a {
@@ -139,6 +211,28 @@ a {
 
 a:visited {
   color: #00bb73;
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  background-color: transparent;
+  text-decoration: none;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn-primary {
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
 }
 
 /** ----------------------------- END Links ------------------------------------------------------- **/
@@ -390,6 +484,22 @@ nav a:hover {
   }
   nav li.active {
     font-weight: bold;
+  }
+  .row {
+    flex-direction: column;
+  }
+  [class^="col"] {
+    width: 100% !important;
+  }
+  aside {
+    margin: 0;
+    padding: 0 !important;
+  }
+  header {
+    padding: 0;
+  }
+  article {
+    padding: 0;
   }
 }
 

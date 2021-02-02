@@ -137,6 +137,38 @@ function loadImages() {
   }
 }
 
+global.publishStatus = function () {
+  let status = document.getElementById('status').value;
+  addLoadingIcon(document.getElementById('status-card'));
+
+  const xhr = new XMLHttpRequest();
+  const data = new FormData();
+  data.append('status', status);
+  xhr.open('POST', '/admin/edit/current/publish-status');
+  xhr.send(data)
+  xhr.onreadystatechange = function (e) {
+    if (xhr.readyState === 4) {
+      removeLoadingIcon(document.getElementById('status-card'));
+    }
+  }
+}
+
+global.appendImage = function (image) {
+  const card = document.getElementById('append-image-card');
+  addLoadingIcon(card);
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/admin/edit/current/append-image');
+  const data = new FormData();
+  data.append('image', image);
+  xhr.send(data);
+  xhr.onreadystatechange = function (e) {
+    if (xhr.readyState === 4) {
+      removeLoadingIcon(card);
+    }
+  }
+}
+
 global.$ = $;
 window.decode = decode;
 global.toggleNav = toggleNav;
