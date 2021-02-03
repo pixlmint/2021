@@ -218,7 +218,7 @@ class AdminController extends AbstractController
             rtrim($title, '.md') .
             "\ndate: " .
             $now->format('Y-m-d H:i') .
-            "\n---";
+            "\n---\n";
         if (!is_file($fileDir)) {
             file_put_contents($fileDir, $content);
         }
