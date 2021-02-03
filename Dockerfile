@@ -23,6 +23,8 @@ RUN apt-get update && \
 RUN pecl install mcrypt-1.0.3
 RUN docker-php-ext-enable mcrypt
 
+RUN docker-php-ext-install exif
+
 RUN docker-php-ext-configure gd --enable-gd --with-jpeg
 
 RUN docker-php-ext-install gd
