@@ -186,6 +186,17 @@ class AdminController extends AbstractController
         return $this->json(['message' => 'Successfully added status']);
     }
 
+    public function testExif($request)
+    {
+        if (strtoupper($request->requestMethod) === 'POST') {
+            print_r($_FILES);
+            $file = $_FILES['file'];
+            print_r(exif_read_data($file['tmp_name']));
+        }
+
+        return $this->render('admin/test-exif.twig');
+    }
+
     public function appendImage($request)
     {
         if (strtoupper($request->requestMethod) !== 'POST') {

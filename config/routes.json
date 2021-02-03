@@ -58,6 +58,12 @@
         "function": "appendImage"
     },
     {
+        "route": "/admin/test-exif",
+        "min_role": "Guest",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "testExif"
+    },
+    {
         "route": "/admin/delete",
         "min_role": "Editor",
         "controller": "Nacho\\Controllers\\AdminController",

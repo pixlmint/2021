@@ -1,0 +1,8 @@
+{% extends 'admin/admin.twig' %}
+
+{% block article %}
+    <form method="POST" action="/admin/test-exif" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Submit" action="/admin/test-exif">
+    </form>
+{% endblock %}

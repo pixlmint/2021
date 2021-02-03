@@ -41,4 +41,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "unlink('composer-setup.php');" \
     && mv composer /usr/local/bin/composer
 
+RUN echo "upload_max_filesize = 16M\n" > /usr/local/etc/php/conf.d/custom.ini
+
 WORKDIR /var/www/html

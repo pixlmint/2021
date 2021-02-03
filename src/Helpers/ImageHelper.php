@@ -30,8 +30,30 @@ class ImageHelper
         if (!is_dir("${imagesDir}${month}/${day}")) {
             mkdir("${imagesDir}${month}/${day}", 0777, true);
         }
+
+        // Rotate Image
+        $image = imagecreatefromjpeg($imagePath);
+        $exif = exif_read_data($imagePath);
+        print_r($exif);
+        if (!empty($exif['Orientation'])) {
+            switch ($exif['Orientation']) {
+                case 8:
+                    $image = imagerotate($image, 90, 0);
+                    break;
+                case 3:
+                    $image = imagerotate($image, 180, 0);
+                    break;
+                case 6:
+                    $image = imagerotate($image, -90, 0);
+                    break;
+            }
+        }
+
+        // Save rotated image
         $uploadedFiles = [];
-        file_put_contents("${imagesDir}${month}/${day}/${baseFileName}_${fileName}", file_get_contents($imagePath));
+        imagejpeg($image, "${imagesDir}${month}/${day}/${baseFileName}_${fileName}");
+
+        // create scaled versions of image
         foreach ($this->getDefaultSizes() as $size) {
             $this->compressImage("${imagesDir}${month}/${day}/${baseFileName}_${fileName}", $size);
             array_push($uploadedFiles, "/images/${month}/${day}/${size}/${baseFileName}_${fileName}");
