@@ -131,7 +131,8 @@ h3 {
 
 /** --------------------------- END Titles -------------------------------------------------------- **/
 
-/** ---------------------------- Rows ------------------------------------------------------------- **/ 
+/** ---------------------------- Rows ------------------------------------------------------------- **/
+
 .card-list {
   gap: 0.5rem;
   flex-direction: row;
@@ -488,18 +489,13 @@ nav a:hover {
   .row {
     flex-direction: column;
   }
-  [class^="col"] {
-    width: 100% !important;
+  .card {
+    margin: 0 auto;
+    width: 90% !important;
   }
-  aside {
-    margin: 0;
-    padding: 0 !important;
-  }
-  header {
-    padding: 0;
-  }
-  article {
-    padding: 0;
+  main>* {
+    width: 80% !important;
+    margin: 0 auto;
   }
 }
 

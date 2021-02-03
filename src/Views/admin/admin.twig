@@ -36,21 +36,6 @@
 	</header>
 {% endblock %}
 
-{% block article %}
-	<div class="row card-list">
-		<div class="card col-12" id="status-card">
-			<input style="width: 95%;" type="text" id="status" placeholder="Quickly add a status">
-			<a class="btn btn-primary" onclick="publishStatus()" href="javascript:void(0)">Publish</a>
-		</div>
-		<div class="col-4 card" id="edit-current-card">
-			<a class="btn btn-primary" href="/admin/edit/current">Edit current Entry</a>
-		</div>
-		<div class="col-6 card" id="append-image-card">
-			<input type="file" onchange="appendImage(this.files[0])" id="upload-file">
-		</div>
-	</div>
-{% endblock %}
-
 {% macro renderSubNav(subNav) %}
 	{% import _self as self %}
 	{% for page in subNav %}
@@ -67,15 +52,38 @@
 
 {% from _self import renderSubNav %}
 {% block aside %}
-	<aside>
-		<ul>
+	<aside id="nav">
+		<a class="fold-button" onclick="toggleFoldContent('#navigation')" href="javascript:void(0)"><h2>Navigation</h2></a>
+		<ul class="fold-content" id="navigation">
+			<li>
+				<a href='/admin'>Admin</a>
+			</li>
 			<li>
 				<a href='/admin/edit/home'>Home</a>
 				{{ renderSubNav(nav) }}
 			</li>
+			<li>
+				<a href='/admin/add'>Crate new</a>
+			</li>
 		</ul>
 	</aside>
 {% endblock %}
+
+{% block article %}
+	<div class="row card-list">
+		<div class="card col-12" id="status-card">
+			<input style="width: 95%;" type="text" id="status" placeholder="Quickly add a status">
+			<a class="btn btn-primary" onclick="publishStatus()" href="javascript:void(0)">Publish</a>
+		</div>
+		<div class="col-4 card" id="edit-current-card">
+			<a class="btn btn-primary" href="/admin/edit/current">Edit current Entry</a>
+		</div>
+		<div class="col-6 card" id="append-image-card">
+			<input type="file" onchange="appendImage(this.files[0])" id="upload-file">
+		</div>
+	</div>
+{% endblock %}
+
 
 {% block js %}
 	{{ parent()}}

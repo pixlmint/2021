@@ -24,8 +24,8 @@
 	</header>
 {% endblock %}
 
-{% block asideLeft %}
-	<aside>
+{% block asideRight %}
+	<aside id="left">
 		<a class="fold-button" href="javascript:void(0)" onclick="toggleFoldContent('#images-fold-content')"><h2>Images</h2></a>
 		<form name="image-form">
 			<input type="file" onchange="uploadImage()" multiple name="image">
