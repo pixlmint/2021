@@ -22,6 +22,26 @@ class JsonUserHandler implements UserHandlerInterface
         return json_decode(file_get_contents(FILE_PATH), true);
     }
 
+    public function changePassword(string $oldPassword, string $newPassword)
+    {
+        $currentUser = $this->getCurrentUser();
+        if (!password_verify($oldPassword, $currentUser['password'])) {
+            throw new \Exception('The Passwords don\'t match');
+        }
+
+        $json = $this->getUsers();
+        foreach ($json as $key => $user) {
+            if ($user['username'] === $currentUser['username']) {
+                $user['password'] = password_hash($newPassword, PASSWORD_DEFAULT);
+                $json[$key] = $user;
+                break;
+            }
+        }
+        file_put_contents(FILE_PATH, json_encode($json));
+
+        return true;
+    }
+
     public function findUser($username)
     {
         foreach ($this->getUsers() as $user) {

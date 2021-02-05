@@ -41,6 +41,34 @@ class AuthenticationController extends AbstractController
         ]);
     }
 
+    public function changePassword($request)
+    {
+        if (!$this->isGranted('Reader')) {
+            header('HTTP/1.0 401');
+            return 'you need to be signed in to access this page';
+        }
+        $message = '';
+
+        if (strtoupper($request->requestMethod) === 'POST') {
+            if ($_REQUEST['newPassword'] !== $_REQUEST['repeatPassword']) {
+                $message = 'The Passwords have to match';
+            } else {
+                $this->nacho->userHandler->changePassword($_REQUEST['oldPassword'], $_REQUEST['newPassword']);
+                $retRoute = $request->httpReferer;
+                if (!$retRoute) {
+                    $retRoute = '/';
+                }
+
+                return $this->redirect($retRoute);
+            }
+        }
+
+        return $this->render('security/change-password.twig', [
+            'referer' => $_SERVER['HTTP_REFERER'],
+            'message' => $message,
+        ]);
+    }
+
     public function logout($request)
     {
         session_destroy();
