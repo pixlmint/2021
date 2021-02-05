@@ -6,6 +6,10 @@ class AuthenticationController extends AbstractController
 {
     public function login($request)
     {
+        if (!isset($_REQUEST['required_page'])) {
+            $_REQUEST['required_page'] = '/';
+        }
+        $message = '';
         if (strtolower($request->requestMethod) === 'post') {
             $isValid = false;
             $foundUser = null;
@@ -26,9 +30,6 @@ class AuthenticationController extends AbstractController
             } else {
                 session_start();
                 $_SESSION['user'] = $foundUser;
-                if (!isset($_REQUEST['required_page'])) {
-                    $_REQUEST['required_page'] = '/';
-                }
                 header('HTTP/1.1 302');
                 header('Location: ' . $_REQUEST['required_page']);
                 die();
