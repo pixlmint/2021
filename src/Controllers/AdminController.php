@@ -260,6 +260,11 @@ class AdminController extends AbstractController
         ]);
     }
 
+    public function showInfo($request)
+    {
+        return phpinfo();
+    }
+
     protected function render(string $template, array $args = [])
     {
         $args['nav'] = $this->getFilesRecursive();

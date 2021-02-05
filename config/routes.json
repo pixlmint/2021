@@ -82,6 +82,12 @@
         "function": "loadImages"
     },
     {
+        "route": "/admin/phpinfo",
+        "min_role": "Editor",
+        "controller": "Nacho\\Controllers\\AdminController",
+        "function": "showInfo"
+    },
+    {
         "route": "/login",
         "controller": "Nacho\\Controllers\\AuthenticationController",
         "function": "login"
