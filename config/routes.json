@@ -93,6 +93,12 @@
         "function": "login"
     },
     {
+        "route": "/change-password",
+        "controller": "Nacho\\Controllers\\AuthenticationController",
+        "function": "changePassword",
+        "min_role": "Reader"
+    },
+    {
         "route": "/logout",
         "controller": "Nacho\\Controllers\\AuthenticationController",
         "function": "logout"
