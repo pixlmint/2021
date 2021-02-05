@@ -28,6 +28,7 @@
 
 .month::before {
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     display: block;
     content: '';
     height: 100%;
@@ -40,6 +41,7 @@
 
 .future::before {
     backdrop-filter: blur(2px) grayscale(2);
+    -webkit-backdrop-filter: blur(2px) grayscale(2);
 }
 
 .month p {
