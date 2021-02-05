@@ -3,7 +3,7 @@
     "lang": "en",
     "name": "2021",
     "scope": "/",
-    "display": "browser",
+    "display": "fullscreen",
     "start_url": "/admin",
     "short_name": "2021",
     "theme_color": "#00bb2f",
