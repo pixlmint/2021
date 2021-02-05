@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8.0-apache
 
 RUN pecl install apcu
 
@@ -20,7 +20,7 @@ RUN apt-get update && \
     libpng-dev
 
 
-RUN pecl install mcrypt-1.0.3
+RUN pecl install mcrypt-1.0.4
 RUN docker-php-ext-enable mcrypt
 
 RUN docker-php-ext-install exif

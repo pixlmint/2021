@@ -28,6 +28,7 @@ class AuthenticationController extends AbstractController
                 $message = 'This password/ username is not valid';
                 header('HTTP/1.0 400');
             } else {
+                session_destroy();
                 session_start();
                 $_SESSION['user'] = $foundUser;
                 header('HTTP/1.1 302');
