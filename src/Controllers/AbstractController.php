@@ -36,6 +36,15 @@ abstract class AbstractController
         return $this->twig;
     }
 
+    protected function error404()
+    {
+        $url = $_SERVER['REQUEST_URI'];
+
+        return $this->render('404.twig', [
+            'route' => $url,
+        ]);
+    }
+
     protected function redirect(string $route)
     {
         header('HTTP/1.1 302');
