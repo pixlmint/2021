@@ -12,6 +12,8 @@ interface UserHandlerInterface
 
     public function findUser(string $username);
 
+    public function changePassword(string $oldPassword, string $newPassword);
+
     public function logout();
 
     public function isGranted(string $minRight = 'Guest', ?array $user = null);
