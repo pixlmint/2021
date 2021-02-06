@@ -22,7 +22,7 @@ class HomeController extends AbstractController
         }
 
         $month = implode('', explode('/', $request->requestUri));
-        if (!array_search($month, MONTHS)) {
+        if (is_bool(array_search($month, MONTHS))) {
             return $this->error404();
         }
 
