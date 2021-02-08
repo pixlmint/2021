@@ -1,9 +1,7 @@
 <?php
 
-namespace Nacho\Controllers;
+namespace App\Controllers;
 
-use Nacho\Security\JsonUserHandler;
-use Nacho\Security\UserHandlerInterface;
 use Nacho\Nacho;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;

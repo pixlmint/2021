@@ -1,10 +1,11 @@
 <?php
 
-namespace Nacho\Controllers;
+namespace App\Controllers;
 
 use DateTime;
-use Nacho\Helpers\ImageHelper;
-use Nacho\Helpers\NavRenderer;
+use App\Helpers\ImageHelper;
+use App\Helpers\NavRenderer;
+use Nacho\Controllers\AbstractController;
 use Nacho\Nacho;
 
 class AdminController extends AbstractController

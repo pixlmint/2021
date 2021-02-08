@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b09ec9ccfaae17b4d1c604578e820e3d",
+    "content-hash": "2aa311b9f55f1b2188dfdb6dac2be9f5",
     "packages": [
+        {
+            "name": "christiangroeber/nacho",
+            "version": "0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ChristianGroeber/Nacho.git",
+                "reference": "7c225d890d1ae809e334848eeadaf357570a3b89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ChristianGroeber/Nacho/zipball/7c225d890d1ae809e334848eeadaf357570a3b89",
+                "reference": "7c225d890d1ae809e334848eeadaf357570a3b89",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "*",
+                "php": "7.4.*",
+                "symfony/yaml": "^5.2",
+                "twig/twig": "^1.36"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nacho\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Gröber",
+                    "email": "swiss8oy.chg@gmail.com"
+                }
+            ],
+            "description": "My own Lightweight PHP Framework",
+            "support": {
+                "issues": "https://github.com/ChristianGroeber/Nacho/issues",
+                "source": "https://github.com/ChristianGroeber/Nacho/tree/0.6"
+            },
+            "time": "2021-02-08T15:00:24+00:00"
+        },
         {
             "name": "erusev/parsedown",
             "version": "1.7.4",
@@ -57,27 +100,36 @@
             "time": "2019-12-30T22:54:17+00:00"
         },
         {
-            "name": "erusev/parsedown-extra",
-            "version": "0.7.1",
+            "name": "symfony/deprecation-contracts",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c"
+                "url": "https://github.com/symfony/deprecation-contracts.git",
+                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/0db5cce7354e4b76f155d092ab5eb3981c21258c",
-                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5fa56b4074d1ae755beb55617ddafe6f5d78f665",
+                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown": "~1.4"
+                "php": ">=7.1"
             },
             "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ParsedownExtra": ""
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
                 }
+            },
+            "autoload": {
+                "files": [
+                    "function.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -85,106 +137,34 @@
             ],
             "authors": [
                 {
-                    "name": "Emanuil Rusev",
-                    "email": "hello@erusev.com",
-                    "homepage": "http://erusev.com"
-                }
-            ],
-            "description": "An extension of Parsedown that adds support for Markdown Extra.",
-            "homepage": "https://github.com/erusev/parsedown-extra",
-            "keywords": [
-                "markdown",
-                "markdown extra",
-                "parsedown",
-                "parser"
-            ],
-            "support": {
-                "issues": "https://github.com/erusev/parsedown-extra/issues",
-                "source": "https://github.com/erusev/parsedown-extra/tree/master"
-            },
-            "time": "2015-11-01T10:19:22+00:00"
-        },
-        {
-            "name": "picocms/pico",
-            "version": "v2.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/picocms/Pico.git",
-                "reference": "bbf4aa4f6b6633a9bddef59e23d04479f42e73ba"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/picocms/Pico/zipball/bbf4aa4f6b6633a9bddef59e23d04479f42e73ba",
-                "reference": "bbf4aa4f6b6633a9bddef59e23d04479f42e73ba",
-                "shasum": ""
-            },
-            "require": {
-                "erusev/parsedown": "^1.7",
-                "erusev/parsedown-extra": "^0.7",
-                "ext-dom": "*",
-                "php": ">=5.3.6",
-                "symfony/yaml": "^2.8",
-                "twig/twig": "^1.35"
-            },
-            "require-dev": {
-                "phpdocumentor/phpdocumentor": "^2.8",
-                "squizlabs/php_codesniffer": "^2.4"
-            },
-            "suggest": {
-                "picocms/composer-installer": "This Composer plugin is responsible for installing Pico plugins and themes using the Composer package manager.",
-                "picocms/pico-deprecated": "PicoDeprecated's purpose is to maintain backward compatibility to older versions of Pico.",
-                "picocms/pico-theme": "Pico requires a theme to actually display the contents of your website. This is Pico's official default theme."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Pico": "lib/",
-                    "PicoPluginInterface": "lib/",
-                    "AbstractPicoPlugin": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gilbert Pellegrom",
-                    "email": "gilbert@pellegrom.me",
-                    "role": "Project Founder"
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
                 },
                 {
-                    "name": "The Pico Community",
-                    "homepage": "http://picocms.org/"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/picocms/Pico/graphs/contributors"
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Pico is a flat file CMS, this means there is no administration backend and database to deal with. You simply create .md files in the \"content\" folder and that becomes a page.",
-            "homepage": "http://picocms.org/",
-            "keywords": [
-                "Simple",
-                "cms",
-                "content-management",
-                "flat-file",
-                "markdown",
-                "markdown-to-html",
-                "php",
-                "pico",
-                "pico-cms",
-                "picocms",
-                "twig",
-                "website",
-                "yaml"
-            ],
+            "description": "A generic function and convention to trigger deprecation notices",
+            "homepage": "https://symfony.com",
             "support": {
-                "docs": "http://picocms.org/docs",
-                "issues": "https://github.com/picocms/Pico/issues",
-                "source": "https://github.com/picocms/Pico"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/master"
             },
-            "time": "2018-12-17T14:57:47+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-07T11:33:47+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -267,28 +247,36 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.52",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "02c1859112aa779d9ab394ae4f3381911d84052b"
+                "reference": "338cddc6d74929f6adf19ca5682ac4b8e109cdb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/02c1859112aa779d9ab394ae4f3381911d84052b",
-                "reference": "02c1859112aa779d9ab394ae4f3381911d84052b",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/338cddc6d74929f6adf19ca5682ac4b8e109cdb0",
+                "reference": "338cddc6d74929f6adf19ca5682ac4b8e109cdb0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": ">=7.2.5",
+                "symfony/deprecation-contracts": "^2.1",
                 "symfony/polyfill-ctype": "~1.8"
             },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.8-dev"
-                }
+            "conflict": {
+                "symfony/console": "<4.4"
             },
+            "require-dev": {
+                "symfony/console": "^4.4|^5.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "bin": [
+                "Resources/bin/yaml-lint"
+            ],
+            "type": "library",
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Yaml\\": ""
@@ -311,12 +299,26 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony Yaml Component",
+            "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v2.8.52"
+                "source": "https://github.com/symfony/yaml/tree/v5.2.3"
             },
-            "time": "2018-11-11T11:18:13+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-02-03T04:42:09+00:00"
         },
         {
             "name": "twig/twig",

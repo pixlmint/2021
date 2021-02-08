@@ -1,8 +1,9 @@
 <?php
 
-namespace Nacho\Controllers;
+namespace App\Controllers;
 
-use Nacho\Helpers\CustomPico;
+use App\Helpers\CustomPico;
+use Nacho\Controllers\AbstractController;
 
 class SearchController extends AbstractController
 {

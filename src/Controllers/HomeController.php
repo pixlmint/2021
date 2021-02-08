@@ -1,9 +1,11 @@
 <?php
 
-namespace Nacho\Controllers;
+namespace App\Controllers;
 
-use Nacho\Helpers\NavRenderer;
+use App\Helpers\NavRenderer;
 use Nacho\Nacho;
+use Nacho\Controllers\AbstractController;
+use Twig\TwigFunction;
 
 class HomeController extends AbstractController
 {
@@ -13,6 +15,9 @@ class HomeController extends AbstractController
     {
         parent::__construct($nacho);
         $this->navRenderer = new NavRenderer($nacho);
+        $this->getTwig()->addFunction(new TwigFunction('month_index', function($var) {
+            return array_search($var, MONTHS);
+        }));
     }
 
     public function index($request)

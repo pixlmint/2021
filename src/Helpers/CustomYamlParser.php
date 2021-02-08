@@ -1,6 +1,6 @@
 <?php
 
-namespace Nacho\Helpers;
+namespace App\Helpers;
 
 class CustomYamlParser
 {

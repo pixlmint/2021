@@ -1,8 +1,9 @@
 <?php
 
-namespace Nacho\Controllers;
+namespace App\Controllers;
 
-use Nacho\Helpers\ImageHelper;
+use App\Helpers\ImageHelper;
+use Nacho\Controllers\AbstractController;
 
 class ImageController extends AbstractController
 {

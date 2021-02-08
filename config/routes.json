@@ -1,7 +1,7 @@
 [
     {
         "route": "/",
-        "controller": "Nacho\\Controllers\\HomeController",
+        "controller": "App\\Controllers\\HomeController",
         "function": "index"
     },
     {
@@ -12,7 +12,7 @@
                 "options": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
             }
         ],
-        "controller": "Nacho\\Controllers\\HomeController",
+        "controller": "App\\Controllers\\HomeController",
         "function": "getMonth"
     },
     {
@@ -23,112 +23,112 @@
                 "options": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
             }
         ],
-        "controller": "Nacho\\Controllers\\HomeController",
+        "controller": "App\\Controllers\\HomeController",
         "function": "getDay"
     },
     {
         "route": "/nacho",
-        "controller": "Nacho\\Controllers\\PageController",
+        "controller": "App\\Controllers\\PageController",
         "function": "loadEntry"
     },
    {
         "route": "/admin",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "index"
     },
     {
         "route": "/admin/add",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "add"
     },
     {
         "route": "/admin/edit",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "edit"
     },
     {
         "route": "/admin/edit/home",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "editHome"
     },
     {
         "route": "/admin/edit/home/upload-original",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "uploadOriginal"
     },
     {
         "route": "/admin/edit/current",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "editCurrent"
     },
     {
         "route": "/admin/edit/current/publish-status",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "publishStatus"
     },
     {
         "route": "/admin/edit/current/append-image",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "appendImage"
     },
     {
         "route": "/admin/test-exif",
         "min_role": "Guest",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "testExif"
     },
     {
         "route": "/admin/delete",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "delete"
     },
     {
         "route": "/admin/image/upload",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\ImageController",
+        "controller": "App\\Controllers\\ImageController",
         "function": "uploadImage"
     },
     {
         "route": "/admin/image/load",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\ImageController",
+        "controller": "App\\Controllers\\ImageController",
         "function": "loadImages"
     },
     {
         "route": "/admin/phpinfo",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "showInfo"
     },
     {
         "route": "/login",
-        "controller": "Nacho\\Controllers\\AuthenticationController",
+        "controller": "App\\Controllers\\AuthenticationController",
         "function": "login"
     },
     {
         "route": "/change-password",
-        "controller": "Nacho\\Controllers\\AuthenticationController",
+        "controller": "App\\Controllers\\AuthenticationController",
         "function": "changePassword",
         "min_role": "Reader"
     },
     {
         "route": "/logout",
-        "controller": "Nacho\\Controllers\\AuthenticationController",
+        "controller": "App\\Controllers\\AuthenticationController",
         "function": "logout"
     },
     {
         "route": "/search",
         "min_role": "Editor",
-        "controller": "Nacho\\Controllers\\AdminController",
+        "controller": "App\\Controllers\\AdminController",
         "function": "search"
     }
 ]

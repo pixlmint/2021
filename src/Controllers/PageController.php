@@ -1,7 +1,9 @@
 <?php
 
 
-namespace Nacho\Controllers;
+namespace App\Controllers;
+
+use Nacho\Controllers\AbstractController;
 
 /**
  * Class PageController
