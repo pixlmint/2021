@@ -1,13 +1,16 @@
 <?php
+
 namespace Nacho\Helpers;
 
 class Request implements RequestInterface
 {
     public $requestMethod;
+    protected Route $route;
 
-    function __construct()
+    function __construct(Route $route)
     {
         $this->bootstrapSelf();
+        $this->route = $route;
     }
 
     private function bootstrapSelf()
@@ -48,5 +51,10 @@ class Request implements RequestInterface
         }
 
         return [];
+    }
+
+    public function getRoute()
+    {
+        return $this->route;
     }
 }

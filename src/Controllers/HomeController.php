@@ -17,17 +17,24 @@ class HomeController extends AbstractController
 
     public function index($request)
     {
-        if ($request->requestUri === '/') {
-            return $this->render('home.twig');
-        }
+        return $this->render('home.twig');
+    }
 
-        $month = implode('', explode('/', $request->requestUri));
-        if (is_bool(array_search($month, MONTHS))) {
-            return $this->error404();
-        }
+    public function getMonth($request)
+    {
+        $month = $request->getRoute()->month;
 
         return $this->render('month.twig', [
-            'month' => implode('', explode('/', $request->requestUri)),
+            'month' => $month,
+        ]);
+    }
+
+    public function getDay($request)
+    {
+        $month = $request->getRoute()->month;
+
+        return $this->render('month.twig', [
+            'month' => $month,
         ]);
     }
 

@@ -4,6 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Nacho\Helpers\Request;
 use Nacho\Security\JsonUserHandler;
+use Nacho\Helpers\Route;
 use Nacho\Nacho;
 
 session_start();
@@ -22,15 +23,16 @@ if (isset($_SERVER['REDIRECT_URL'])) {
 function endswith($string, $test)
 {
     $length = strlen($test);
-    if( !$length ) {
+    if (!$length) {
         return true;
     }
-    return substr( $string, -$length ) === $test;
+    return substr($string, -$length) === $test;
 }
 
-function startsWith( $haystack, $needle ) {
-    $length = strlen( $needle );
-    return substr( $haystack, 0, $length ) === $needle;
+function startsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+    return substr($haystack, 0, $length) === $needle;
 }
 
 if (endswith($path, '/') && $path !== '/') {
@@ -43,31 +45,36 @@ function getRoute($path)
         file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/config/routes.json'),
         true
     );
+    if ($path !== '/') {
+        $path = substr($path, 1, strlen($path));
+    }
     foreach ($routes as $route) {
-        if ($route['route'] === $path) {
-            return $route;
+        $tmpRoute = new Route($route);
+        if ($tmpRoute->match($path)) {
+            return $tmpRoute;
         }
     }
+    return null;
 }
 
 function getContent($route)
 {
-    $request = new Request();
+    $request = new Request($route);
     $userHandler = new JsonUserHandler();
     $nacho = new Nacho($request, $userHandler);
-    if (isset($route['min_role']) && !$nacho->isGranted($route['min_role'])) {
+    if (!$nacho->isGranted($route->getMinRole())) {
         header('Http/1.1 302');
         header('Location: /login?required_page=' . $_SERVER['REDIRECT_URL']);
         die();
     }
-    $controllerDir = $route['controller'];
+    $controllerDir = $route->getController();
     $cnt = new $controllerDir($nacho);
-    $function = $route['function'];
+    $function = $route->getFunction();
     if (!method_exists($cnt, $function)) {
         header('Http/1.1 404');
         return "${function} does not exist in ${controllerDir}";
     }
-    $request = new Request();
+    $request = new Request($route);
     return $cnt->$function($request);
 }
 

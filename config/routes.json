@@ -5,6 +5,28 @@
         "function": "index"
     },
     {
+        "route": "/{month}",
+        "variables": [
+            {
+                "variable": "month",
+                "options": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+            }
+        ],
+        "controller": "Nacho\\Controllers\\HomeController",
+        "function": "getMonth"
+    },
+    {
+        "route": "/{month}/{date}",
+        "variables": [
+            {
+                "variable": "month",
+                "options": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+            }
+        ],
+        "controller": "Nacho\\Controllers\\HomeController",
+        "function": "getDay"
+    },
+    {
         "route": "/nacho",
         "controller": "Nacho\\Controllers\\PageController",
         "function": "loadEntry"
