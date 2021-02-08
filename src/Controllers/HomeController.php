@@ -32,9 +32,15 @@ class HomeController extends AbstractController
     public function getDay($request)
     {
         $month = $request->getRoute()->month;
+        $day = $request->getRoute()->date;
+        $date = new \DateTime($day);
+        $route = "/${month}/" . $date->format('Y-m-d');
+        $page = $this->nacho->getPage($route);
+        $content = $this->nacho->renderPage($page);
 
-        return $this->render('month.twig', [
-            'month' => $month,
+        return $this->render('day.twig', [
+            'day' => $date->format('d.m.Y'),
+            'content' => $content,
         ]);
     }
 
