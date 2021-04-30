@@ -30,7 +30,6 @@ class App {
 
     printPage(jsonPage) {
         this.content.innerHTML += "<h2 id='" + jsonPage.id + "'>" + jsonPage.meta.title + "</h2>" + decode(jsonPage.content)
-        document.title = jsonPage.title + ' · Journal'
         document.querySelector('meta[name="description"]').remove()
         document.querySelector('head').innerHTML +=
             '<meta name="description" content="' + jsonPage.description + '">'
