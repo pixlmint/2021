@@ -10,7 +10,6 @@ class App {
     loadPage(page) {
         this.content.innerHTML = ''
         addLoadingIcon(this.content)
-        history.pushState({}, '', page)
 
         fetch('/nacho?p=' + page)
             .then(response => response.text())
