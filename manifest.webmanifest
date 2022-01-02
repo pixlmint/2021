@@ -4,7 +4,7 @@
     "name": "2021",
     "scope": "/",
     "display": "fullscreen",
-    "start_url": "/admin",
+    "start_url": "/",
     "short_name": "2021",
     "theme_color": "#00bb2f",
     "orientation": "any",
